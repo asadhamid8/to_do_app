@@ -16,7 +16,7 @@ const updatetodo = zod.object (
     }
     )
 
-module.export= {
+module.exports= {
 
     createtodo: createtodo,
     updatetodo: updatetodo

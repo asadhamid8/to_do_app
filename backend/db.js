@@ -10,6 +10,6 @@ const todosschema = mongoose.Schema({
 
 const todos= mongoose.model('todos', todosschema);
 
-module.export={
-    todo
+module.exports={
+    todos
 }

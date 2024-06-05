@@ -1,13 +1,14 @@
-const express=require("express");
-const types= require("/types.js")
-const app=express;
-const todo=require("/db.js")
-app.use(express.json)
+const express = require("express");
+const { createTodo, updateTodo } = require("./types");
+const { todo } = require("./db");
+const cors = require("cors");
+const app = express();
+
 
 app.post("/todo",async function(req,res){
 
      const createPayload=req.body;
-    const parsePayload=types.createtodo.safeParse(createPayload);
+    const parsePayload=types.createTodo.safeParse(createPayload);
     if(!parsePayload.success)
         {
             res.send(411).json({
@@ -39,7 +40,7 @@ app.post("/todo",async function(req,res){
 
  app.put("/completed",async function(req,res){
 const createPayload=req.body;
-const parsePayload=types.updatetodo.safeParse(createPayload);
+const parsePayload=types.updateTodo.safeParse(createPayload);
     if(!parsePayload.success)
         {
             res.send(411).json({
@@ -55,3 +56,6 @@ const parsePayload=types.updatetodo.safeParse(createPayload);
         }
         );
 })
+
+app.listen(3000);
+console.log("asad");
